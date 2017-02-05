@@ -18,3 +18,17 @@ def display_board(board):
 
 board = new_board()
 display_board(board)
+
+player_move = input('выбери число, куда вкатить крест')
+
+board[int(player_move)] = 'X'
+
+display_board(board)
+
+# while 1:
+#     player_move = input('выбери число, куда вкатить крест\n')
+#
+#     board[int(player_move)] = 'X'
+#
+#     display_board(board)
+
