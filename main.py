@@ -1,5 +1,4 @@
 import random
-import time
 
 
 squares_number = 9
@@ -26,7 +25,7 @@ def display_board(board):
 
 def player_move(board):
     pl_move = input('Выбери число, куда вкатить крест\n')
-    print(board[int(pl_move)])
+
     if board[int(pl_move)] != 'O' and board[int(pl_move)] != 'X':
         board[int(pl_move)] = 'X'
         player_moves_list.append(pl_move)
@@ -47,18 +46,29 @@ def computer_move(board):
 
 
 
-def win_check():
-    pass
+def win_check(board):
+    for moves in win_moves:
+        if board[moves[0]] == board[moves[1]] == board[moves[2]]:
+            global winner
+            winner = board[moves[0]]
+            return True
+    return False
 
 
 def main():
 
     board = new_board()
-    while 1:
+    while not win_check(board):
         display_board(board)
         player_move(board)
         computer_move(board)
 
+    display_board(board)
+    if winner == 'X':
+        print('Ты победил!!!')
+    elif winner == 'O':
+        print('Победил компьютер!!!')
+    print('Игра закончена!')
 
 
 if __name__ == '__main__':
