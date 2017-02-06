@@ -5,8 +5,8 @@ squares_number = 9
 win_moves = [(0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6),
              (1, 4, 7), (2, 5, 8), (2, 4, 6), (0, 4, 8)]
 
-player_moves_list = []
-comp_moves_list = []
+# player_moves_list = []
+# comp_moves_list = []
 
 def new_board():
     board = []
@@ -28,7 +28,7 @@ def player_move(board):
 
     if board[int(pl_move)] != 'O' and board[int(pl_move)] != 'X':
         board[int(pl_move)] = 'X'
-        player_moves_list.append(pl_move)
+        # player_moves_list.append(pl_move)
 
     else:
         print('Это поле уже занято, слепой ?')
@@ -39,7 +39,7 @@ def computer_move(board):
     comp_move = random.choice(range(9))
     if board[int(comp_move)] != 'X' and board[int(comp_move)] != 'O':
         board[int(comp_move)] = 'O'
-        comp_moves_list.append(comp_move)
+        # comp_moves_list.append(comp_move)
     else:
         computer_move(board)
 
