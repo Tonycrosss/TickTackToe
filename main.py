@@ -36,6 +36,7 @@ def computer_move(board):
     comp_move = random.choice(range(9))
     print(comp_move)
     board[int(comp_move)] = 'O'
+    
 
 
 
