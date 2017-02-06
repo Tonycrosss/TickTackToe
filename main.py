@@ -44,25 +44,29 @@ def computer_move(board):
         computer_move(board)
 
 
-
-
 def win_check(board):
     for moves in win_moves:
         if board[moves[0]] == board[moves[1]] == board[moves[2]]:
             global winner
             winner = board[moves[0]]
             return True
+        else:
+            winner = 0
     return False
 
 
 def main():
-
+    counter = 0
     board = new_board()
     while not win_check(board):
         display_board(board)
         player_move(board)
-        computer_move(board)
-
+        counter += 1
+        if counter != 5:
+            computer_move(board)
+        else:
+            print('Ничья!!!')
+            break
     display_board(board)
     if winner == 'X':
         print('Ты победил!!!')
