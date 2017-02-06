@@ -1,4 +1,10 @@
+import random
+
+
+
 squares_number = 9
+win_moves = [(0, 1, 2)]
+player_moves_list = []
 
 
 def new_board():
@@ -16,19 +22,39 @@ def display_board(board):
     print("\n\t", board[6], "|", board[7], "|", board[8], "\n")
 
 
-board = new_board()
-display_board(board)
+def player_move(board):
+    pl_move = input('выбери число, куда вкатить крест\n')
+    if board[int(pl_move)] != 'O':
+        board[int(pl_move)] = 'X'
+        player_moves_list.append(pl_move)
 
-player_move = input('выбери число, куда вкатить крест')
+    else:
+        print('Это поле уже занято, ты пропускаешь ход')
 
-board[int(player_move)] = 'X'
 
-display_board(board)
+def computer_move(board):
+    comp_move = random.choice(range(9))
+    print(comp_move)
+    board[int(comp_move)] = 'O'
 
-# while 1:
-#     player_move = input('выбери число, куда вкатить крест\n')
-#
-#     board[int(player_move)] = 'X'
-#
-#     display_board(board)
+
+
+
+def win_check():
+    pass
+
+
+def main():
+    board = new_board()
+    while 1:
+        display_board(board)
+        player_move(board)
+        computer_move(board)
+
+
+
+if __name__ == '__main__':
+    main()
+
+
 
